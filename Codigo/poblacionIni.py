@@ -242,7 +242,7 @@ def evaluation(ind):
         print("El pozole está MALO")
     elif FaF >= 27:
         print("El pozole está MALO")
-    """
+    """ 
 
     print("Valor del hijo: ", "{:.2f}".format(FaF))
     return FaF
