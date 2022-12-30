@@ -250,7 +250,7 @@ def evaluation(ind):
 def torneo(listaInd):
     newLista = []
     for i in listaInd:
-        if i <= FaF:
+        if i <= fa:
             newLista.append(i)
 
     nNewLista = sorted(newLista, reverse=True)
