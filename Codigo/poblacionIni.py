@@ -19,9 +19,9 @@ def evaluation(ind):
     rojo = [1]
     blanco = [0]
     if  char1 == rojo:
-        peso1 = 6.4
+        peso1 = 5.7
     elif char1 == blanco:
-        peso1 = 6.1
+        peso1 = 5.4
     print(peso1)
 
     #Lechuga Si/No
@@ -34,13 +34,13 @@ def evaluation(ind):
     lChina = [1,0]
     lFrancesa = [1,1]
     if char2 == lOrejona:
-        peso2 = 7.3
+        peso2 = 1.1
     elif char2 == lRomana:
-        peso2 = 5.2
+        peso2 = 5.7
     elif char2 == lChina:
-        peso2 = 1
+        peso2 = 1.1
     elif char2 == lFrancesa:
-        peso2 = 2
+        peso2 = 3.2
     print(peso2)
 
     #Oregano Si/No
@@ -51,9 +51,9 @@ def evaluation(ind):
     oreganoSi = [1]
     oreganoNo = [0]
     if char3 == oreganoSi:
-        peso3 = 8.0
+        peso3 = 8.2
     elif char3 == oreganoNo:
-        peso3 = 4.5
+        peso3 = 2.9
     print(peso3)
     
     #Acuagate
@@ -71,21 +71,21 @@ def evaluation(ind):
     aGwen = [1,1,0]
     aReed = [1,1,1]
     if char4 == aHass:
-        peso4 = 6.3
+        peso4 = 3.9
     elif char4 == aLHass:
-        peso4 = 2.0
+        peso4 = 1.1
     elif char4 == aCriollo:
-        peso4 = 1.1
+        peso4 = 2.1
     elif char4 == aFuerte:
-        peso4 = 3.1
+        peso4 = 1.0
     elif char4 == aBacon:
-        peso4 = 6.3
+        peso4 = 0.0
     elif char4 == aPinkerton:
-        peso4 = 2.0
+        peso4 = 0.0
     elif char4 == aGwen:
-        peso4 = 1.1
+        peso4 = 2.0
     elif char4 == aReed:
-        peso4 = 3.1
+        peso4 = 1.0
     print(peso4)
 
     #Limon
@@ -102,21 +102,21 @@ def evaluation(ind):
     lComlima = [1,1,0]
     lPersa = [1,1,1]
     if char5 == lSSemilla:
-        peso5 = 4.1
+        peso5 = 3.2
     elif char5 == lVerde:
-        peso5 = 2.1
+        peso5 = 1.1
     elif char5 == lAmarillo:
         peso5 = 1.1
     elif char5 == lReal:
-        peso5 = 5.2
-    elif char5 == lAcido:
-        peso5 = 4.1
-    elif char5 == lMexicano:
-        peso5 = 2.1
-    elif char5 == lComlima:
         peso5 = 1.1
+    elif char5 == lAcido:
+        peso5 = 0.5
+    elif char5 == lMexicano:
+        peso5 = 1.0
+    elif char5 == lComlima:
+        peso5 = 2.1
     elif char5 == lPersa:
-        peso5 = 5.2
+        peso5 = 1.0
     print(peso5)
 
     #Rabano Si/No
@@ -127,9 +127,9 @@ def evaluation(ind):
     rabanoSi = [1]
     rabanoNo = [0]
     if char6 == rabanoSi:
-        peso6 = 7.5
+        peso6 = 7.6
     elif char6 == rabanoNo:
-        peso6 = 5.0
+        peso6 = 3.5
     print(peso6)
     
     #Carne Puerco/Pollo
@@ -146,21 +146,21 @@ def evaluation(ind):
     lomoCer = [1,1,0]
     cocidoCer = [1,1,1]
     if char7 == costillaCer:
-        peso7 = 4.1
+        peso7 = 2.1
     elif char7 == chambaRes:
-        peso7 = 2.1
+        peso7 = 0.3
     elif char7 == carDesCer:
-        peso7 = 1.1
+        peso7 = 0.0
     elif char7 == carDesRes:
-        peso7 = 5.2
+        peso7 = 0.2
     if char7 == manCer:
-        peso7 = 4.1
+        peso7 = 0.2
     elif char7 == espiCer:
-        peso7 = 2.1
+        peso7 = 6.0
     elif char7 == lomoCer:
-        peso7 = 1.1
+        peso7 = 2.0
     elif char7 == cocidoCer:
-        peso7 = 5.2
+        peso7 = 0.3
     print(peso7)
 
     #Salsa
@@ -177,21 +177,21 @@ def evaluation(ind):
     sPeanut = [1,1,0]
     sMorita = [1,1,1]
     if char8 == sVerde:
-        peso8 = 2.0
+        peso8 = 0.1
     elif char8 == sRoja:
-        peso8 = 1.3
+        peso8 = 0.1
     elif char8 == sMacha:
-        peso8 = 2.1
+        peso8 = 5.1
     elif char8 == sGuacamole:
         peso8 = 1.1
     elif char8 == sArbol:
         peso8 = 2.0
     elif char8 == sHabanero:
-        peso8 = 1.0
+        peso8 = 0.1
     elif char8 == sPeanut:
-        peso8 = 1.0
+        peso8 = 0.5
     elif char8 == sMorita:
-        peso8 = 2.0
+        peso8 = 2.1
     print(peso8)
 
     #Cebolla
@@ -209,40 +209,24 @@ def evaluation(ind):
     cCebolleta = [1,1,0]
     cMorada = [1,1,1]
     if char9 == cFrancesa:
-        peso9 = 2.0
+        peso9 = 0.1
     elif char9 == cBlanca:
-        peso9 = 1.3
+        peso9 = 5.2
     elif char9 == cAmarilla:
-        peso9 = 2.1
+        peso9 = 1.2
     elif char9 == cVidalia:
-        peso9 = 1.1
+        peso9 = 1.2
     elif char9 == cCalcot:
-        peso9 = 2.0
+        peso9 = 0.1
     elif char9 == cCebollin:
-        peso9 = 1.0
+        peso9 = 0.1
     elif char9 == cCebolleta:
-        peso9 = 1.0
+        peso9 = 0.1
     elif char9 == cMorada:
-        peso9 = 2.0
+        peso9 = 3.1
     print(peso9)
 
     FaF = peso1 + peso2 + peso3 + peso4 + peso5 + peso6 + peso7 + peso8 + peso9
-    """"
-    if FaF >= 50:
-        print("Pozole muy MUY RICO")
-    elif FaF <50 :
-        print("El pozole está RICO")
-    elif FaF >= 43:
-        print("El pozole está RICO")
-    elif FaF < 43:
-        print("El pozole está BIEN")
-    elif FaF >= 35:
-        print("El pozole está BIEN")
-    elif FaF <35:
-        print("El pozole está MALO")
-    elif FaF >= 27:
-        print("El pozole está MALO")
-    """ 
 
     print("Valor del hijo: ", "{:.2f}".format(FaF))
     return FaF
@@ -268,14 +252,14 @@ def cruza(individuos, numCortes):
     pad1 = individuos[0]
     pad2 = individuos[1]
     for i in individuos:
-        if i == 50:
-            pad1 = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-        elif i == 45:
-            pad2 = [1,0,1,0,1,0,0,1,1,1,0,0,1,1,0,1,0,0,0,1]
-        elif i == 35:
-            pad3 = [1,1,0,0,0,0,0,1,1,1,1,0,1,0,1,0,1,0,1,0]
-        elif i == 25:
-            pad4 = [0,0,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,0]
+        if i == 50.6:
+            pad1 = [1,0,1,1,0,0,0,0,0,0,1,1,0,1,0,1,0,0,0,1]
+        elif i == 50.3:
+            pad2 = [0,0,1,1,0,0,0,0,0,0,1,1,0,1,0,1,0,0,0,1]
+        elif i == 36.2:
+            pad3 = [1,1,1,1,0,1,0,1,1,0,1,1,1,0,1,1,1,1,1,1]
+        elif i == 35.9:
+            pad4 = [0,1,1,1,0,1,0,1,1,0,1,1,1,0,1,1,1,1,1,1]
 
     posCortes = random.randint(1,9)
 
@@ -324,29 +308,7 @@ def cruza(individuos, numCortes):
     print("Hijo2 FA: ", evaluation(hijo2))
 
     return(hijo1, hijo2)
-"""
-def ruleta(lista):
-    listaSumas = []
-    listax = []
-    listaSumas.append(lista [0])
-    for i in lista[1:]:
-        pos = len(listaSumas)-1
-        listaSumas.append(i+listaSumas[pos])
-    
-    pos2 = len(listaSumas)-1
-    numero = listaSumas[pos2]
-    a = random.randrange(0,int(numero))
 
-    for i in listaSumas:
-        if a < i:
-            numero = i
-        
-        pos = listaSumas.index(numero)
-
-        listax.append(lista[pos])
-
-    return listax  
-"""
 
 if __name__ == "__main__":
     NG = int(input("Número de generaciónes: \n"))
