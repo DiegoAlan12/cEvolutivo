@@ -1,43 +1,28 @@
+#Importamos todas las librerias necesarias
 import random
+import pandas as pd
+import matplotlib.pyplot as plt
+from csv import writer
 
+#Esta es la generación inicial con un tamaño de 20 individuos
 def pobIni():
     tam = 20
     listaInd = []
     listaIndEva = []
-    listaAll = []
+    #Se genera cada individuo con cada una de sus posiciones, en total son 21 posiciones
     for i in range(tam):
         ind = [random.randint(0, 1) for _ in range(21)]
-        print(f'{ind}')
+        #print(f'{ind}')
+        #Cada individuo se almacena en una lista de individuos
         listaInd.append(ind)
+        #Para después evaluar cada uno y que tome su función de aptitud
         listaIndEva.append(evaluation(ind))
-        listaAll.append(ind)
-        listaAll.append(evaluation(ind))
-    """"
-    print(listaInd)
-    print(listaIndEva)
-    print(listaAll)
-    #print("{:.2f}".format(listaIndEva))
-    """
-    return listaInd, listaIndEva, listaAll
-
-def genIndividuo():
-    num = 0
-    ind = []
-    list = []
-    tam = 20
-    for i in range(tam):
-        list = []
-        for j in range(21):
-            num = random.randrange(0,2)
-            list.append(num)
-        if(list in ind):
-            tam = tam+1
-        else:
-            ind.append(list)
-    return ind
+    return listaInd, listaIndEva
 
 def evaluation(ind):
-    # Color del pozole
+    #Se pasa cada individuo y se evalua por las posiciones del individuo
+
+    #Característica 1: Color del pozole
     char1 = []
     char1.append(ind[0])
     # print(char1)
@@ -52,7 +37,7 @@ def evaluation(ind):
         sabor1 = 4.5
     #print(costo1, sabor1)
 
-    # Lechuga
+    #Característica 2: Lechuga
     char2 = ind[1:3]
     # print(char2)
 
@@ -74,7 +59,7 @@ def evaluation(ind):
         sabor2 = 2.0
     #print(costo2, sabor2)
 
-    # Oregano
+    #Característica 3: Oregano
     char3 = []
     char3.append(ind[3])
     # print(char3)
@@ -89,7 +74,7 @@ def evaluation(ind):
         sabor3 = 4.5
     #print(costo3, sabor3)
 
-    # Aguacate
+    #Característica 4: Aguacate
 
     char4 = ind[4:7]
     # print(char4)
@@ -128,7 +113,7 @@ def evaluation(ind):
         sabor4 = 1.0
    # print(costo4, sabor4)
 
-    # Limon
+    #Característica 5: Limón
     char5 = ind[7:10]
     # print(char5)
 
@@ -166,7 +151,7 @@ def evaluation(ind):
         sabor5 = 1.0
     #print(costo5, sabor5)
 
-    # Rabano
+    #Característica 6: Rabano
     char6 = []
     char6.append(ind[10])
     # print(char6)
@@ -181,7 +166,7 @@ def evaluation(ind):
         sabor6 = 4.5
     #print(costo6, sabor6)
 
-    # Carne
+    #Característica 7: Carne
     char7 = ind[11:14]
     # print(char7)
 
@@ -219,7 +204,7 @@ def evaluation(ind):
         sabor7 = 2.5
     #print(costo7, sabor7)
 
-    # Salsa
+    #Característica 8: Salsa
     char8 = ind[14:17]
     # print(char8)
 
@@ -257,7 +242,7 @@ def evaluation(ind):
         sabor8 = 1.5
     #print(costo8, sabor8)
 
-    # Cebolla
+    #Característica 9: Cebolla
     char9 = ind[17:20]
     # print(char9)
 
@@ -295,10 +280,10 @@ def evaluation(ind):
         sabor9 = 2.0
    # print(costo9, sabor9)
 
-    # Maiz
+    #Característica 10: Maiz
     char10 = []
     char10.append(ind[20])
-   # print(char10)
+    
 
     mBolsa = [1]
     mPreco = [0]
@@ -310,6 +295,8 @@ def evaluation(ind):
         sabor10 = 5.5
     #print(costo10, sabor10)
 
+    #Dependiendo el costo total del pozole, se le asignará un valor entre 10 a 100
+    #Para determinar que tan caro o barato es el pozole
     preCosto = costo1 + costo2 + costo3 + costo4 + costo5 + costo6 + costo7 + costo8 + costo9 + costo10
     #print("Costo pre: ", preCosto)
     costoVal = 0
@@ -334,13 +321,12 @@ def evaluation(ind):
     elif preCosto in range(741, 761):
         costoVal = 100
     
-    #print("Costo Value: ", costoVal)
+    #Se realiza una regla de 3, ya que le asignamos un peso del 30% al costo en un 100% al MEJOR POZOLE
     costoTotal = (((costoVal)*30)/100)
-    #print("cTotal: ", costoTotal)
+    #De igual manera para un MEJOR POZOLE, se le da un peso de 70% dentro de 100% al sabor del pozole
     saborTotal = (((sabor1 + sabor2 + sabor3 + sabor4 + sabor5 + sabor6 + sabor7 + sabor8 + sabor9 + sabor10)*70)/100)
-    #print("sbtotal: ", saborTotal)
+    #Y al realizar la suma, nos da un total de la función de aptitud, que mientras más alta sea, mejor será el pozole
     FA = costoTotal+saborTotal
-    print("Función de aptitud del Individuo: ", FA)
     return FA
 
 def opeTorneo(listaIndEva, listaInd):
@@ -416,7 +402,7 @@ def opeMutacion(cruza):
             tasaMuta = random.random()
             gen = ind[j]
             #Comparamos la tasa de mutación con el % de mutación
-            if(tasaMuta<.01):
+            if(tasaMuta<.03):
                 #Muta 
                 if(gen==1):
                     mutado.append(0)
@@ -427,40 +413,77 @@ def opeMutacion(cruza):
                 mutado.append(gen)
         muta.append(mutado)
     return muta
-                
+
+#Se hace el cálculo entre cada generación del individuo promedio                
 def genePromedio(listaIndEva):
     prom = sum(listaIndEva)/len(listaIndEva)
     return prom
 
-def evaluar(listaIndEva):
+#Se hace la evaluación entre el mejor y el peor individuo de cada generación
+def evaluar(listaIndEva, listaInd):
+    individuoSelect = []
+    individuo = []
+    minValue = min(listaIndEva)
     maxValue = max(listaIndEva)
-    return maxValue
+    indice = listaIndEva.index(maxValue)
+    individuo = listaInd[indice]
+    individuoSelect.append(individuo)
+    individuoSelect.append(maxValue)
+    individuoSelect.append(minValue)
+    #print(individuoSelect)
+    return individuoSelect
     
 if __name__ == "__main__":
     individuosBest = []
     generacionesProm = []
     graficar = []
 
-    #se generan los individuos de la poblacion en la generacion inicial#
-    listaInd, listaIndEva, listaAll = pobIni()
+    #se generan los individuos de la poblacion en la generacion inicial
+    #Y al mismo tiempo nos da las aptitudes de cada uno de ellos
+    listaInd, listaIndEva = pobIni()
     print("Individuos: \n", listaInd)
     print("-------------------")
     print("Evaluaciones: \n", listaIndEva)
-
-    for g in range(500):
-
-        best = evaluar(listaIndEva)
+    #Ciclamos según el número de generaciónes requeridas
+    for g in range(1000):
+        #Identificamos al mejor iindividuo y al peor individuo de cada generación
+        best = evaluar(listaIndEva, listaInd)
         individuosBest.append(best)
 
+        #Identificamos el promedio de aptitud por cada generación
         promedio = genePromedio(listaIndEva)
         generacionesProm.append(promedio)
 
+        #Primer operador a realizar: Selección por Torneo con K=2
         seleccion = opeTorneo(listaIndEva, listaInd)
-
+        #Segundo operador: Cruza Uniforme con probabilidad del 50%
         cruza = opeCruza(listaIndEva, seleccion)
-
+        #Tercer operador: Mutación por inversión base N
+        #NOTA:La probabilidad de mutación, se midofica en la línea 405
         mutacion = opeMutacion(cruza)
-        listaIndEva = evaluation(mutacion)
-
+        
+        listaInd = mutacion
+        listaIndEva = []
+        for i in mutacion:
+            listaIndEva.append(evaluation(i))
     
-
+    #Creamos un .CSV, con los resultados
+    headers = ['Individuo', 'Mejor AP', 'Peor AP', 'AP Promedio']
+    with open('C:/Users/diego/OneDrive/Documents/ComputoEvolutivo/P1.csv', 'a', newline='') as f_object:
+        writer_object = writer(f_object)
+        writer_object.writerow(headers)
+        f_object.close()
+    for i in range(len(generacionesProm)):
+        tupla = []
+        for j in range(3):
+            tupla.append(individuosBest[i][j])
+        tupla.append(generacionesProm[i])
+        with open('C:/Users/diego/OneDrive/Documents/ComputoEvolutivo/P1.csv', 'a', newline='') as f_object:
+            writer_object = writer(f_object)
+            writer_object.writerow(tupla)
+            f_object.close()
+    #Mostramos el gráfico de los resultados
+    resultsData = pd.read_csv('C:/Users/diego/OneDrive/Documents/ComputoEvolutivo/P1.csv', index_col = 0)
+    resultsData.head()
+    resultsData.plot()
+    plt.show()
