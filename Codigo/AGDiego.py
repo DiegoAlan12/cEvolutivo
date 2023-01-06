@@ -430,7 +430,7 @@ def evaluar(listaIndEva, listaInd):
     individuoSelect.append(individuo)
     individuoSelect.append(maxValue)
     individuoSelect.append(minValue)
-    #print(individuoSelect)
+    print(individuoSelect)
     return individuoSelect
     
 if __name__ == "__main__":
